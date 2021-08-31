@@ -1,0 +1,19 @@
+.file_upload {
+    width: 12vw;
+    cursor: pointer;
+}
+
+.form_div{
+    display: flex;
+    margin-top: 20% ;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.part  p {
+   
+    font-size: 1vw;
+    margin-top: 5%  ;
+}

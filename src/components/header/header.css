@@ -1,0 +1,115 @@
+header {
+    display: flex;
+    justify-content: space-between;
+   
+    position: fixed;
+    left: 0%;
+    right: 0%;
+    top: 0;
+    padding: 2em 6em;
+    
+    
+}
+
+.side {
+    position: absolute;
+    background-color: var(--color);
+    top: 0;
+    bottom: 0;
+    height: 100vh;
+    left: 0;
+    width: 0;
+    overflow: hidden;
+    display: none;
+    transition: 1s ;
+    z-index: 1;
+}
+    
+header nav{
+    display: flex;
+
+
+}
+
+
+
+header nav ul {
+    list-style-type: none;
+    display: inline-flex;
+    margin-right: 2em;
+}
+
+header nav ul li {
+    margin-left: 1em;
+}
+
+.menu {
+    display: none;
+}
+
+.side .inside ul {
+    list-style-type: none;
+
+}
+.side .inside {
+    display: flex;
+    margin-top: 25vh;
+    justify-content: center;
+
+}
+/* for small screens */
+@media screen and (max-width:670px) {
+    /* header for mobile */
+    header {
+        padding: 1.5em 2em
+    }
+    /* show the menue */
+   .menu {
+       display: block;
+   }
+
+   /* create sidebar from nav */
+   header nav{
+       display: none;
+ 
+    }
+
+    /* side stylings */
+    .side {
+        display: block;
+       
+    }
+}
+
+/* for medium screens  */
+@media screen and  (min-width:670px) and (max-width:1004px) {
+     /* header for medium screens */
+     header {
+        padding: 1.5em 2em
+    }
+    
+    /* show the menue */
+   .menu {
+    display: block;
+
+    }
+
+     /* create sidebar from nav */
+   header nav{
+      display: none;
+
+    }
+
+    .side {
+        display: none;
+    }
+
+    /* hide the other options on small screens */
+
+
+}
+
+/* for desktop and large screens  */
+@media screen and  (min-width:1004px) {
+  
+}
