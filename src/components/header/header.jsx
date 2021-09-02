@@ -1,6 +1,7 @@
  import React,{useState} from 'react'
  import './header.css'
  import {FaBars} from 'react-icons/fa'
+ import LoginButton from '../../screen/landing/button'
  
  function Header(props) {
      const [open,setOpen]=useState(0)
@@ -20,7 +21,7 @@
                      </ul>
 
                      <span>
-                     <button>Login</button>
+                        <LoginButton/>
                      </span>
                     
                      
