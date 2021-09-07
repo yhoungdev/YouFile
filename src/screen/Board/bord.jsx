@@ -37,8 +37,9 @@ function Board() {
                         {/* logged in user */}
                         <div className="inSidebar">
                         <div className="user">
-                        <img src={user.picture} alt="user profile picture " />
-                    </div>
+                         <img src={user.picture} alt="user profile picture " />
+                         <h6>{user.name}</h6>
+                        </div>
 
                         {/* folders */}
                     <div className="items">

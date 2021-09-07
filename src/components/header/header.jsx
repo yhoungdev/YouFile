@@ -49,7 +49,7 @@
                      </ul>
 
                      <span>
-                     <button className='btn'> <Link to='/board'>Board</Link> </button>
+                     <button className='auth' onClick={()=>loginWithRedirect(0)}>Login</button>
                      </span>
               
                  </nav>
