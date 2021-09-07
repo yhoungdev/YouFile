@@ -5,7 +5,7 @@ function Offline() {
         <div>
             <div className="Offline-container">
                 <div>
-                    you need to be loged in to first 
+                    <h5>Loading...</h5>
                 </div>
             </div>
         </div>
