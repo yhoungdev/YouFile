@@ -14,100 +14,102 @@ import Offline from '../offline/offline';
 
 
 function Board() {
-    const {logout,user, isLoading, isAuthenticated} =useAuth0()
-
-        if(isLoading) {
-
-           return  <div>offline</div>
-
-        }
-     
+    const {logout,user, isAuthenticated, isLoading} =useAuth0()
     return (
-      isAuthenticated && (
+
+
+
               
         <>
-
-        <Router>
-            {/* sidebar */}
-
-            <div className="board">
-                
-                {/* for the sidebar */}
-                <div className="sidebar">
-                        {/* logged in user */}
-                        <div className="inSidebar">
-                        <div className="user">
-                         <img src={user.picture} alt="user profile picture " />
-                         <h6>{user.name}</h6>
+            {!isAuthenticated ? <Offline/> : 
+            
+                // dispaly component for user login    
+                <div className="div">
+                     <Router>
+                {/* sidebar */}
+    
+                <div className="board">
+                    
+                    {/* for the sidebar */}
+                    <div className="sidebar">
+                            {/* logged in user */}
+                            <div className="inSidebar">
+                            <div className="user">
+                             <img src={user.picture} alt="user profile picture " />
+                             <h6>{user.name}</h6>
+                            </div>
+    
+                            {/* folders */}
+                        <div className="items">
+    
+                            <ul>
+                                <Link to='/board'></Link>
+                                <li>
+                                    <Link to='/image'><h3> <FaFolder/> Images</h3></Link>
+                                </li>
+                                <li>
+                                    <Link to='/audio'><h3> <FaFolder/> Audio</h3></Link>
+                                </li>
+                                <li>
+                                    <Link to='/video'><h3> <FaFolder/> Video</h3></Link>
+                                </li>
+                                <li>
+                                    <Link to='/doc'><h3> <FaFolder/> PDF </h3></Link>
+                                </li>
+                            </ul>
+    
                         </div>
-
-                        {/* folders */}
-                    <div className="items">
-
-                        <ul>
-                            <Link to='/board'></Link>
-                            <li>
-                                <Link to='/image'><h3> <FaFolder/> Images</h3></Link>
-                            </li>
-                            <li>
-                                <Link to='/audio'><h3> <FaFolder/> Audio</h3></Link>
-                            </li>
-                            <li>
-                                <Link to='/video'><h3> <FaFolder/> Video</h3></Link>
-                            </li>
-                            <li>
-                                <Link to='/doc'><h3> <FaFolder/> PDF </h3></Link>
-                            </li>
-                        </ul>
-
+    
+                        {/* log out */}
+                        <span>
+                            <h5 onClick={()=>logout({returnTo:window.origin})}>Logout</h5>
+                        </span>
+                            </div>
+    
                     </div>
-
-                    {/* log out */}
-                    <span>
-                        <h5 onClick={()=>logout({returnTo:window.origin})}>Logout</h5>
-                    </span>
-                        </div>
-
+    
+                    {/* for the main section */}
+    
+                    <div className="main">
+                        <Route exact path='/board' >
+                            <Upload/>
+                        </Route>
+    
+                        <Route  path='/video'> 
+                            <Video/>
+                        </Route>
+    
+                        <Route path='/audio'>
+                            <Audio/>
+                        </Route>
+    
+                        <Route path='/image'>
+                            <Image/>
+                        </Route>
+    
+                        <Route path='/doc'>
+                            <Doc/>
+                        </Route>
+    
+                        
+    
+                        
+    
+    
+                    </div>
+    
+    
+    
+                </div>
+    
+            </Router>
                 </div>
 
-                {/* for the main section */}
-
-                <div className="main">
-                    <Route exact path='/board' >
-                        <Upload/>
-                    </Route>
-
-                    <Route  path='/video'> 
-                        <Video/>
-                    </Route>
-
-                    <Route path='/audio'>
-                        <Audio/>
-                    </Route>
-
-                    <Route path='/image'>
-                        <Image/>
-                    </Route>
-
-                    <Route path='/doc'>
-                        <Doc/>
-                    </Route>
-
-                    
-
-                    
-
-
-                </div>
-
-
-
-            </div>
-
-        </Router>
+            }
+       
 
     </>
-      )
+      
     )
 }
 

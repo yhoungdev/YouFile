@@ -7,7 +7,7 @@
 
  function Header(props) {
      const [open,setOpen]=useState(0)
-     const {loginWithRedirect}=useAuth0();
+     const {loginWithRedirect, isAuthenticated, logout}=useAuth0();
      return (
          <div>
              <header>
@@ -25,7 +25,9 @@
 
                      <span>
 
-                        <button className='auth' onClick={()=>loginWithRedirect(0)}>Login</button>
+                       {!isAuthenticated ?  <button className='auth' onClick={()=>loginWithRedirect()}>Login</button>
+                        :  <button className='auth' onClick={()=>logout({returnTo: window.location.origin})}>Logout</button>
+                       }
                      
                      </span>
                     
