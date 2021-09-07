@@ -1,3 +1,7 @@
+:root {
+    --primary:#2CB978;
+}
+
 /* for mobile screen */ 
 .middle {
     display: flex;

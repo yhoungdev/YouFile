@@ -2,9 +2,12 @@
  import './header.css'
  import {FaBars} from 'react-icons/fa'
  import LoginButton from '../../screen/landing/button'
- 
+ import { useAuth0 } from "@auth0/auth0-react";
+ import {Link} from 'react-router-dom'
+
  function Header(props) {
      const [open,setOpen]=useState(0)
+     const {loginWithRedirect}=useAuth0();
      return (
          <div>
              <header>
@@ -21,7 +24,9 @@
                      </ul>
 
                      <span>
-                        <LoginButton/>
+
+                        <button className='auth' onClick={()=>loginWithRedirect(0)}>Login</button>
+                     
                      </span>
                     
                      
@@ -44,7 +49,7 @@
                      </ul>
 
                      <span>
-                     <button>Login</button>
+                     <button className='btn'> <Link to='/board'>Board</Link> </button>
                      </span>
               
                  </nav>

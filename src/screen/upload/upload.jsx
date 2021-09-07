@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import {FaUpload} from 'react-icons/fa';
 import upload from '../assets/upload.png'
 import './upload.css'
-   
+import Button from '../../components/button/button';
 function Upload() {
     const [msg, setMsg]=useState('')
     const [disable,setDisable]=useState('true')
@@ -35,7 +35,8 @@ function Upload() {
                             </p>
 
                         </div>
-                        <button>Upload</button>
+
+                        <button disabled='true' > Upload </button>                       
 
                     </form>
                 </div>
