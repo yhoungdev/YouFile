@@ -6,10 +6,19 @@ import Button from '../../components/button/button';
 function Upload() {
     const [msg, setMsg]=useState('')
     const [disable,setDisable]=useState('true')
+    const [title, setTitle]=useState('')
+    
     
     // prevent form action
     const form = e => e.preventDefeault();
 
+    //upload form 
+    const backup = e => {
+       let file = e.target.files[0]
+       setMsg(file.name)
+        setDisable(false)
+
+    }
     return (
         <>
             <section>
@@ -23,9 +32,9 @@ function Upload() {
                 <div className='form_div'>
                     <form onSubmit={ e => e.preventDefault()} >
 
-                        <input type="file" name="file" id="file" style={{display:'none'}} />
+                        <input type="file" name="file" id="file" onChange={backup}  style={{display:'none'}} />
                         <div className="part">
-                            <label htmlFor="file">
+                            <label htmlFor="file"  >
 
                             <img src={upload} className='file_upload' />
                             
@@ -36,7 +45,10 @@ function Upload() {
 
                         </div>
 
-                        <button disabled='true' > Upload </button>                       
+                        {msg}
+                        <br />
+
+                        <button disabled={disable} className='auth'> Upload </button>                       
 
                     </form>
                 </div>
