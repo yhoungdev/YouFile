@@ -8,7 +8,14 @@ import Board from './screen/Board/bord';
 import Video from './screen/video/video';
 import Offline from './screen/offline/offline';
 import {base} from './base'
+
+if(navigator.onLine) {
+  alert('online')
+} else {
+  alert('offline')
+}
 function App() {
+  
   return (
     <div className="App">
       <Router>
