@@ -1,5 +1,6 @@
 :root {
     --primary:#2CB978;
+    --color:#334257;
 }
 
 /* for mobile screen */ 
@@ -48,9 +49,9 @@ padding: 18px 33px;
 cursor: pointer;
 outline: none;
 border: none;
-width: 208px;
+
 height: 65px;
-background: #2CB978;
+background: #334257;
 border-radius: 7px;
 text-align: center;
 font-size: 1.5em;
