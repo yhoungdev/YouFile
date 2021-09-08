@@ -131,7 +131,7 @@ function Upload() {
             <section className="upload">
                 
                 {/* now create the form */}
-                <div className='form_div'>
+                <div className='form_div' style={{flexDirection:'column'}}>
                     <form onSubmit={ e => e.preventDefault()} >
 
                         <input type="file" name="file" id="file" onChange={backup}  style={{display:'none'}} />
@@ -142,17 +142,21 @@ function Upload() {
                             
                         </label>
                             <p style={{textAlign:'center'}}>
-                            upload files here
+                           Click to upload files 
                             </p>
 
+                            <br />
                         </div>
 
-                        {msg}
+                       
                         <br />
 
-                        <button disabled={disable} className='auth'> Upload </button>                       
+                      
+
+                        {/* <button disabled={disable} className='auth'> Upload </button>                        */}
 
                     </form>
+                    <p className='msg'> {msg} has been uploaded successfully </p>
                 </div>
 
             </section>

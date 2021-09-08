@@ -17,3 +17,9 @@
     font-size: 1vw;
     margin-top: 5%  ;
 }
+
+.msg {
+    color: rgb(11, 12, 11);
+    font-family: 'montserrat';
+    font-weight: 500;
+}
