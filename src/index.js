@@ -9,6 +9,7 @@ import {Auth0Provider} from '@auth0/auth0-react';
 ReactDOM.render(
 
   <React.StrictMode>
+    
       <Auth0Provider
       domain="dev-t796fd3h.us.auth0.com"
       clientId="8cPbx9NlC18sg0h6jDcSlTMH5D9QyCg2"

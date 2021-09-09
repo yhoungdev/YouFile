@@ -4,11 +4,23 @@ import upload from '../assets/upload.png'
 import './upload.css'
 
 import Button from '../../components/button/button';  
-
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import { getStorage, ref, uploadBytes, uploadBytesResumable } from "firebase/storage";
+
+
 function Upload() {
+    //application states 
+
+    const [msg, setMsg]=useState('')
+    const [disable,setDisable]=useState('true')
+    const [title, setTitle]=useState('')
+    const [hide , setHide] = useState('none')
+    const [info , setInfo]=useState('')
+
 
     var file;
+ 
 
     const image_upload =()=> {
         const storage = getStorage()
@@ -17,7 +29,8 @@ function Upload() {
         const insert = uploadBytesResumable(storageRef, file);
 
         insert.on('state_change', snapshot => {
-            alert(0)
+            setHide('block')
+            setInfo('You chosed  an image file')
         })
     }
 
@@ -30,7 +43,8 @@ function Upload() {
         const insert = uploadBytesResumable(storageRef, file);
 
         insert.on('state_change', snapshot => {
-            alert(0)
+            setHide('block')
+            setInfo('You chosed  a pdf file')
         })
     }
 
@@ -42,7 +56,8 @@ function Upload() {
         const insert = uploadBytesResumable(storageRef, file);
 
         insert.on('state_change', snapshot => {
-            alert(0)
+            setHide('block')
+            setInfo('You chosed  an audio file')
         })
     }
 
@@ -54,7 +69,8 @@ function Upload() {
         const insert = uploadBytesResumable(storageRef, file);
 
         insert.on('state_change', snapshot => {
-            alert(0)
+            setHide('block')
+            setInfo('You chosed  a video')
         })
     }
 
@@ -66,15 +82,13 @@ function Upload() {
         const insert = uploadBytesResumable(storageRef, file);
 
         insert.on('state_change', snapshot => {
-            alert(0)
+            setHide('block')
+            setInfo('You chosed  a Zip file')
         })
     }
    
    
 
-    const [msg, setMsg]=useState('')
-    const [disable,setDisable]=useState('true')
-    const [title, setTitle]=useState('')
     
     
     // prevent form action
@@ -115,7 +129,17 @@ function Upload() {
           
 
       
-
+         toast.success(`${file.name} has been upload successfully`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            });
+    
+      
         
 
 
@@ -123,6 +147,22 @@ function Upload() {
     }
     return (
         <>
+        
+            <span style={{display:hide}}>
+                <ToastContainer
+                position="top-center"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                />
+            </span>
+        
+
             <section>
                 <h4>Upload</h4>
                 <small></small>
@@ -156,7 +196,7 @@ function Upload() {
                         {/* <button disabled={disable} className='auth'> Upload </button>                        */}
 
                     </form>
-                    <p className='msg'> {msg} has been uploaded successfully </p>
+                    <p className='msg'> {info} </p>
                 </div>
 
             </section>
